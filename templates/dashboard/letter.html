@@ -1,0 +1,51 @@
+{% extends 'dashboard/layouts/base.html' %}
+{% load static %}
+
+{% block title %} Fill Slam {% endblock title %}
+
+{% block stylesheets %}
+    <link href="{% static 'dashboard/css/paper_card.css' %}" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <link href="{% static 'dashboard/css/style_border.css' %}" rel="stylesheet"/>
+    <link rel="stylesheet" href="{% static 'dashboard/css/pagination.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@600&family=Mali&display=swap" rel="stylesheet">
+{% endblock stylesheets %}
+
+{% block extraHead %}
+<style>
+  @media screen and (max-width: 500px) {
+    #avatar_container {
+      padding: 0px;
+    }
+  }
+</style>
+{% endblock %}
+
+{% block letter_status %} active {% endblock %}
+
+{% block content %}
+<div class="wrapper">
+    
+    <div class="pages" style="font-family: 'Josefin Slab', serif;">
+             <!-- Pages--> 
+      </div>
+    <br>
+    <div class="paginator">
+      <button type="button" class="arrow-left" id="prev_button"> prev </button>
+      <div class="page-nums"></div>
+      <button type="button" class="arrow-right" id="next_button"> next </button>
+    </div>
+  </div>
+{% endblock content %}
+
+{% comment %}
+{% block scripts %}
+
+  {% if is_senior %}
+    <script  src="{% static 'dashboard/js/pagination_senior.js' %}"></script>
+  {% else %}
+    <script  src="{% static 'dashboard/js/pagination_junior.js' %}"></script>
+  {% endif %}
+
+{% endblock scripts %}
+{% endcomment %}

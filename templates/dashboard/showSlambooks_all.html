@@ -1,0 +1,43 @@
+{% extends 'dashboard/layouts/base.html' %}
+
+{% block title %} Fill Slams {% endblock title %}
+{% load static %}
+{% block stylesheets %}
+  <link href="{% static 'dashboard/css/slam_card.css' %}" rel="stylesheet" />
+  <link href="{% static 'dashboard/css/style_border.css' %}" rel="stylesheet"/>
+{% endblock stylesheets %}
+
+{% block fillSlams_status %} active {% endblock %}
+
+  {% block content %}
+  <br>
+  <ol class="articles" style="padding-inline-start: 20px;">
+        {% for senior, color in zip %}
+
+          <li class="articles__article" style="--animation-order:1">
+            <a href="{% url 'myapp:fillSlambook' pk=senior.pk %}" class="articles__link">
+              <div class="articles__content articles__content--lhs" style="background-color: {{color}};">
+                <h2 class="articles__title" style="margin-bottom: 0px;">{{senior.name}}'s Slam</h2>
+                <p style="margin-bottom: 0px; text-align: right; font-size: 20px;">{{senior.nick_name}}</p>
+                <img src={{senior.avatar}} style="position: relative; left: -20px;" />
+                <!-- <div class="articles__footer">
+                  <p>Cakes</p>
+                  <time>1 Jan 2020</time>
+                </div> -->
+              </div>
+              <div class="articles__content articles__content--rhs" aria-hidden="true" style="background-color: {{color}};">
+                <h2 class="articles__title" style="margin-bottom: 0px;">{{senior.name}}'s Slam</h2>
+                <p style="margin-bottom: 0px; text-align: right; font-size: 20px;">{{senior.nick_name}}</p>
+                <img src={{senior.avatar}} style="position: relative; left: -20px;"/>
+                <!-- <div class="articles__footer">
+                  <p>Cakes</p>
+                  <time>1 Jan 2020</time>
+                </div> -->
+              </div>
+            </a>
+          </li>
+
+        {% endfor %}
+    </ol>
+    
+{% endblock content %}

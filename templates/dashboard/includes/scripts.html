@@ -1,19 +1,312 @@
-<script src="static/dashboard/js/core/jquery.min.js"></script>
-  <script src="static/dashboard/js/core/popper.min.js"></script>
-  <script src="static/dashboard/js/core/bootstrap.min.js"></script>
-  <script src="static/dashboard/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-  <!--  Google Maps Plugin    -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-  <!-- Chart JS -->
-  <script src="static/dashboard/js/plugins/chartjs.min.js"></script>
-  <!--  Notifications Plugin    -->
-  <script src="static/dashboard/js/plugins/bootstrap-notify.js"></script>
-  <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="static/dashboard/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script><!-- Paper Dashboard DEMO methods, don't include it in your project! -->
-  <script src="static/dashboard/demo/demo.js"></script>
-  <script>
-    $(document).ready(function() {
-      // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
-      demo.initChartsPages();
-    });
+{% load static %}
+<script src="{% static 'dashboard/js/core/jquery.min.js' %}"></script>
+<script src="{% static 'dashboard/js/core/popper.min.js' %}"></script>
+<script src="{% static 'dashboard/js/core/bootstrap.min.js' %}"></script>
+<script src="{% static 'dashboard/js/plugins/perfect-scrollbar.jquery.min.js' %}"></script>
+<!--  Google Maps Plugin    -->
+<!-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script> -->
+<!-- Chart JS -->
+<!-- <script src="{% static 'dashboard/js/plugins/chartjs.min.js"></script> -->
+<!--  Notifications Plugin    -->
+<script src="{% static 'dashboard/js/plugins/bootstrap-notify.js' %}"></script>
+<!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+<script src="{% static 'dashboard/js/paper-dashboard.min.js' %}" type="text/javascript"></script><!-- Paper Dashboard DEMO methods, don't include it in your project! -->
+<script src="{% static 'dashboard/demo/demo.js' %}"></script>
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+<!-- Sidebar JS-->
+<script src="{% static 'dashboard/js/sidebar.js' %}"></script>
+
+<script>
+  function auto_grow(element) {
+    element.style.height = "330px";
+    element.style.height = (element.scrollHeight)+"px";
+    element.parentElement.style.height = (element.scrollHeight+30)+"px";
+    (element.parentElement).parentElement.style.height = (element.scrollHeight+60)+"px";
+}
+</script>
+
+{% if is_senior %}
+<script type="text/javascript">
+let pages = [
+    {id: 1, text: "<h3>PAGE 1</h3> <p>Banda Sh has been dating bandi V for the last four years and third wheel S has always prayed to separate the love birds. S often romanticizes about V and goes to a lapdancer, C to quench his thirst of romance and love. C tries to help S move on with his moves but fails every single time. Guess moving on isn't easy. S now decides to learn guitar to impress V, so he visits A, a man born with a guitar in his hand, to learn to play the guitar; but this reminds him of V's love for shayaris. S now moves to a Sharma ji, the diljala shayar to learn shayaris but poor S fails miserably and decides to settle for his lapdancer, C. Meanwhile, the banda Sh finds out V is cheating on him with two guys. Sh files a case against V and appoints the best advocate in the city AR, a man of impeccable logic and evidences. AR, being a man of principles, refuses to take this case up because A knows Sh is already dating the famous film director, KJo, who is called Pam by Sh. Meanwhile, V moves on a double date with her side chicks, H, the CEO of company G and AK, the CEO of company M; only to realise AK is already dating the biggest singer of all time and is not of V's type. So, V finally settles for H and teaches him everything from Sharma ji's shayaris to rolling plants. H has now become a pro and decides to break up with V because he believes V is not that good in rolling plants anymore. A has been playing guitar all this time, much like those three men playing violins in titanic. What's a story without some background music? Miss P who is reading all this gets irritated by the writer's stupid imagination. She snatches away A's guitar and kills the writer. The writer would meet you in heaven. Later! Oh wait, maybe the writer would go to hell for this.</p>", active: true},
+    {id: 2, text: "<h3>PAGE 2</h3> <p>Confused?</p><p> You won't be any more when we introduce all the characters.</p><p>Featuring...<br></p> <div class=\"container \" id=\"avatar_container\"> <div class=\"row row-cols-2\"> {% for senior in seniors %} <div class=\"col \"> <img src=\"{{senior.avatar_standing}}\" /><br> <p style=\"text-align: center\"> {{senior.name}} as {{senior.story_name}} </p> <br> </div>{% endfor %} </div></div>", active: false},
+    {id: 3, text: "<h3>PAGE 3</h3> <p>When life gives you lemon throw it back, and ask for a college life once again where you could have earned your farewell without a \"bat\" coming all the way from China and hindering your way. 4 years isn't a small time yet when you look back , tons of things are still left to to be completed and cherished . As Naina told you years back, \"life mein jitna bhi try kar lo kuchh Na kuchh to chhutega hi !!!\". None the less college life gave you millions of memories, pain, gossips,smiles and love in the past four years from your junior senior and batchmates and gave you a home away from home.</p><p>so why not sit back, close your eyes and relax and let us dive deep into the four year long memory lane of your college life to relish and re live every memory that you created years and months ago which still seems like yesterday. Here is the team of Litsoc not in front of you , but in your hearts re-creating memories which begins from jam nights and ends with games like Scrabble, word puzzle, biggest liar and \" baba ki Bakar\" , \"wittyness of Param sir\", \"Shivam sir\'s literature\", \"Chirag sir\'s lapdance\", \"Siddharth sir ki vocabulary\" and other great names, great talents.</p><p>I know there's a lot that you have missed, a lot was left yet to complete, and a lot that you maybe are regretting now. You missed what you deserved. Seems like you were denied that fruit which you planted and watered from years. You are ones who did gazillions of things for the college, for our college, took these primary clubs from level0 to level1 or maybe more(you know words always fail to express your sentiments fully, you surely do know!).In every small-big possible way, you contributed for the development of a newly grown IIT.But, fate had decided something else for you.</p><p>To our Litsoc seniors , I know you have missed a lot. Your dreams of last semester's tomfoolery, last college trips with your friends, last hug from your college juniors on your last day of college, graduation dinners, GPL of friends, and a lot lot lot more. For four years , IIT Mandi proved to be not just your college but home, juniors were not just students but your siblings, alumni were not just seniors but your guardians in times of crisis and collegues were not just friends but proved out to be brothers and sisters. Though everything was not as beautiful as I'm writing , I know it was full of ups and downs and at times you fought them all alone despite of being surrounded by everyone, but yet you pulled out the best out of yourselves and cheerfully succeded to make it to your final years.I know it would be a nightmare for you all to wake up one day just 5 minutes before 9 and instead of rushing to your classes in loose pyjamas and sleepy eyes, you all would be rushing for your office with unknotted ties and messed up files in your folder.My pen feels so heavy to sum up these things yet all these writings are so insignificant compared to what are going through right now.</p><p>But you know, you would prove to be the best of all batches because you have witnessed the pain of separation, devastation, rejection , denial and distances. You are ones who will have multiples of success stories to tell to your next generations because you knew how to make things work despite of miles of physical distances from each other and yet being so close. This lockdown taught mankind millions of small things and you are ones who were hit and got over it.</p><br><p >YOU WILL BE MISSED..............</p><br><br> <p style=\"text-align:right; font-weight:bold;\"> <img src=\"https://img.icons8.com/ios/30/000000/hand-with-pen.png\"/> Team Litsoc ❤️</p>", active: false},
+  ];
+
+  // UI Elements
+  const pagesContainer = document.querySelector(".pages"),
+        buttonsContainer = document.querySelector(".paginator"),
+        numButtonsContainer = document.querySelector(".page-nums");
+  
+  
+  // Clear pages
+  function clearPages() {
+    while(pagesContainer.firstChild) {
+      pagesContainer.firstChild.remove();
+    }
+  }
+  
+  // Clear Buttons
+  function clearButtons() {
+    while(numButtonsContainer.firstChild) {
+      numButtonsContainer.firstChild.remove();
+    }
+  }
+  
+  // Render buttons
+//   function renderButtons(activePage) {
+//     clearButtons();
+   
+//     pages.forEach(function(current) {
+//       const button = document.createElement("button");
+//       button.className = "page-num";
+//       button.type = "button";
+//       button.title = current.id;
+//       button.textContent = current.id;
+     
+//       if(current.id === activePage.id) {
+//         button.classList.add("active");
+//       } else {
+//           button.classList.remove("active");
+//       }
+     
+//       numButtonsContainer.appendChild(button);
+//     })
+//   }
+  
+  // Main render
+  function render() {
+    clearPages();
+   
+    let activePage = pages.find(function(current) {
+      return current.active === true;
+    })
+   
+    const div = document.createElement("div");
+    div.className = "page";
+    div.dataset.id = activePage.id;
+    div.innerHTML = activePage.text;
+   
+    pagesContainer.appendChild(div);
+   
+    setTimeout(function() {
+      div.classList.add("active");
+    }, 10);
+   
+    renderButtons(activePage)
+  }
+  
+  // Event listeners for button clicks
+  
+  // Buttons with page numbers click event
+  numButtonsContainer.addEventListener("click", function(e) {
+    if(e.target.classList.contains("page-num")) {
+     
+      const activePage = pages.find(function(current) {
+        return current.active;
+      })
+     
+      if(e.target.title != activePage.id) {
+       
+        pages.forEach(function(current) {
+         current.active = false;
+       })
+       
+        pages[e.target.title - 1].active = true;
+        render();
+      }
+    }
+  })
+  
+  // Arrow buttons click event
+  buttonsContainer.addEventListener("click", function(e) {
+    let activePage = pages.find(function(current) {
+        return current.active === true;
+      });
+   
+    if(e.target.className === "arrow-left") {
+     
+      if(pages[0].active === true) {
+        pages[activePage.id - 1].active = false;
+        pages[pages.length - 1].active = true;
+        render();
+       
+      } else {
+          pages[activePage.id - 1].active = false;
+          pages[(activePage.id - 1) - 1].active = true;
+          render();
+        }
+     
+    } else if(e.target.className === "arrow-right") {
+        if(pages[pages.length - 1].active === true) {
+          pages[activePage.id - 1].active = false;
+          pages[0].active = true;
+          render();
+          
+        } else {
+            pages[activePage.id - 1].active = false;
+            pages[(activePage.id - 1) + 1].active = true;
+            render();
+          }
+     
+    } else return;
+  })
+  
+  // Initial render of the app
+  render();
   </script>
+  {% else %}
+  <script>
+      /*
+
+Inspired by Florin Pop's coding challenges, you can check them here: https://www.florin-pop.com/blog/2019/03/weekly-coding-challenge/
+
+= Pagination short logic description =
+ 
+  We set collection of our pages as an array of objects.
+  Each object is a page with properties:
+    * id - used as identifier
+    * text - HTML page content
+    * active - flag for page that is currently rendered.
+ 
+  Logic is to check which object is flagged active and render that page.
+ 
+  Page gets flagged as active by button click events.
+ 
+  Buttons are rendered according to pages - for every page we create one button with:
+    * corresponding number as text
+    * corresponding ID as a button title.
+ 
+  Rest are button click events for switching pages.
+*/
+
+// Pages and their content
+let pages = [
+    {id: 1, text: "<h3>PAGE 1</h3> <p>Banda Sh has been dating bandi V for the last four years and third wheel S has always prayed to separate the love birds. S often romanticizes about V and goes to a lapdancer, C to quench his thirst of romance and love. C tries to help S move on with his moves but fails every single time. Guess moving on isn't easy. S now decides to learn guitar to impress V, so he visits A, a man born with a guitar in his hand, to learn to play the guitar; but this reminds him of V's love for shayaris. S now moves to a Sharma ji, the diljala shayar to learn shayaris but poor S fails miserably and decides to settle for his lapdancer, C. Meanwhile, the banda Sh finds out V is cheating on him with two guys. Sh files a case against V and appoints the best advocate in the city AR, a man of impeccable logic and evidences. AR, being a man of principles, refuses to take this case up because A knows Sh is already dating the famous film director, KJo, who is called Pam by Sh. Meanwhile, V moves on a double date with her side chicks, H, the CEO of company G and AK, the CEO of company M; only to realise AK is already dating the biggest singer of all time and is not of V's type. So, V finally settles for H and teaches him everything from Sharma ji's shayaris to rolling plants. H has now become a pro and decides to break up with V because he believes V is not that good in rolling plants anymore. A has been playing guitar all this time, much like those three men playing violins in titanic. What's a story without some background music? Miss P who is reading all this gets irritated by the writer's stupid imagination. She snatches away A's guitar and kills the writer. The writer would meet you in heaven. Later! Oh wait, maybe the writer would go to hell for this.</p> ", active: true},
+    {id: 2, text: "<h3>PAGE 2</h3> <p>Confused?</p><p> You won't be any more when we introduce all the characters.</p><p>Featuring...<br></p> <div class=\"container \" id=\"avatar_container\"> <div class=\"row row-cols-2\"> {% for senior in seniors %} <div class=\"col \"> <img src=\"{{senior.avatar_standing}}\" /><br> <p style=\"text-align: center\"> {{senior.name}} as {{senior.story_name}} </p> <br> </div>{% endfor %} </div></div>", active: false},
+    {id: 3, text: "<h3>PAGE 3</h3> <p>When life gives you lemon, Chuck it to China's face and make out your best efforts to pay a tribute to your seniors with whom you witnessed various tomfoolery of your college life. I know, a little less of the time we got to spend with them and know them as \"virtual life\" kicked in our lives from past some months. Rules were laid to avoid outings and parties, however no rules were ever laid on creativity. So kudos to our team for generating all those great big small ideas and let's close our eyes, sit back and relax and dive in to cherish those lives a little who helped us grow, survive and strive in college. All that you have to do is shake your mind until the best memory peeps out. Write down every memory that you have wished to recreate or cherish with them when in college. Let them know it's not just them , it's hard for us too to leave them . Let us make our small effort to make our position fixed in a corner of their heart😉❤️</p>", active: false},
+  ];
+  
+  // UI Elements
+  const pagesContainer = document.querySelector(".pages"),
+        buttonsContainer = document.querySelector(".paginator"),
+        numButtonsContainer = document.querySelector(".page-nums");
+  
+  
+  // Clear pages
+  function clearPages() {
+    while(pagesContainer.firstChild) {
+      pagesContainer.firstChild.remove();
+    }
+  }
+  
+  // Clear Buttons
+  function clearButtons() {
+    while(numButtonsContainer.firstChild) {
+      numButtonsContainer.firstChild.remove();
+    }
+  }
+  
+  // Render buttons
+//   function renderButtons(activePage) {
+//     clearButtons();
+   
+//     pages.forEach(function(current) {
+//       const button = document.createElement("button");
+//       button.className = "page-num";
+//       button.type = "button";
+//       button.title = current.id;
+//       button.textContent = current.id;
+     
+//       if(current.id === activePage.id) {
+//         button.classList.add("active");
+//       } else {
+//           button.classList.remove("active");
+//       }
+     
+//       numButtonsContainer.appendChild(button);
+//     })
+//   }
+  
+  // Main render
+  function render() {
+    clearPages();
+   
+    let activePage = pages.find(function(current) {
+      return current.active === true;
+    })
+   
+    const div = document.createElement("div");
+    div.className = "page";
+    div.dataset.id = activePage.id;
+    div.innerHTML = activePage.text;
+   
+    pagesContainer.appendChild(div);
+   
+    setTimeout(function() {
+      div.classList.add("active");
+    }, 10);
+   
+    renderButtons(activePage)
+  }
+  
+  // Event listeners for button clicks
+  
+  // Buttons with page numbers click event
+  numButtonsContainer.addEventListener("click", function(e) {
+    if(e.target.classList.contains("page-num")) {
+     
+      const activePage = pages.find(function(current) {
+        return current.active;
+      })
+     
+      if(e.target.title != activePage.id) {
+       
+        pages.forEach(function(current) {
+         current.active = false;
+       })
+       
+        pages[e.target.title - 1].active = true;
+        render();
+      }
+    }
+  })
+  
+  // Arrow buttons click event
+  buttonsContainer.addEventListener("click", function(e) {
+    let activePage = pages.find(function(current) {
+        return current.active === true;
+      });
+   
+    if(e.target.className === "arrow-left") {
+     
+      if(pages[0].active === true) {
+        pages[activePage.id - 1].active = false;
+        pages[pages.length - 1].active = true;
+        render();
+       
+      } else {
+          pages[activePage.id - 1].active = false;
+          pages[(activePage.id - 1) - 1].active = true;
+          render();
+        }
+     
+    } else if(e.target.className === "arrow-right") {
+        if(pages[pages.length - 1].active === true) {
+          pages[activePage.id - 1].active = false;
+          pages[0].active = true;
+          render();
+          
+        } else {
+            pages[activePage.id - 1].active = false;
+            pages[(activePage.id - 1) + 1].active = true;
+            render();
+          }
+     
+    } else return;
+  })
+  
+  // Initial render of the app
+  render();
+  </script>
+  {% endif %}

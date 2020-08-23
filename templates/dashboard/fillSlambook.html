@@ -1,18 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <div>
-        <form method="post">
-            <!-- this is same as an HTML form. Questions are label tags and answers are textArea tag -->
-            {{ form.as_p }}
-            {% csrf_token %}
-            <input type="submit" value="submit">
-        </form>
-    </div>
-</body>
-</html>
+{% extends 'dashboard/layouts/base.html' %}
+{% load static %}
+{% block title %} Fill Slambook {% endblock title %}
+
+{% block stylesheets %}
+    <link href="{% static 'dashboard/css/paper_card.css' %}" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <link href="{% static 'dashboard/css/style_border.css' %}" rel="stylesheet"/>
+{% endblock stylesheets %}
+{% block fillSlams_status %} active {% endblock %}
+
+{% block content %}
+<div class="row">
+    <form method="post" class="row">
+        <!-- this is same as an HTML form. Questions are label tags and answers are textArea tag -->
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="col-md-12 py-2">
+                {{ field.errors }}
+                <h5 class="question">{{ field.label_tag }}</h5>
+                <div class="paper">
+                    <div class="paper-content">
+                        {{ field }}
+                    </div>
+                </div>
+            </div>
+            
+            <br>
+        {% endfor %}
+        <div class="col-md-12 py-4">
+            <!-- <input type="submit" value="submit" style="display: block; margin: auto;"> -->
+            <button type="submit" class="btn btn-info btn-lg" style="display: block; margin: auto; font-family: 'Fredoka One', cursive; font-size: 20px;">Submit</button>
+            <!-- <button class="submit-button state-0" style="display: block; margin: auto; font-size: large;"><span class="pre-state-msg">Submit</span><span class="current-state-msg hide">Sending...</span><span class="done-state-msg hide">Done!</span></button> -->
+        </div>
+    </form>
+</div>
+{% endblock content %}

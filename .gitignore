@@ -1,0 +1,8 @@
+.vscode/
+users/db.sqlite3
+dashboard/__pycache__/
+dashboard/migrations/
+e_Slambook/__pycache__/
+users/__pycache__/
+users/migrations/
+screenshots/

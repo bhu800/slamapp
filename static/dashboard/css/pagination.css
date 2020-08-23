@@ -1,0 +1,98 @@
+/* Imports */
+@import url('https://fonts.googleapis.com/css?family=Red+Hat+Display&display=swap');
+
+/* Color scheme */
+:root {
+  --accent: #444B6E;
+  --light: #CACFD6;
+  --dark: #1C3144;
+}
+
+/* General Styles */
+/* body {
+  font-family: 'Red Hat Display', sans-serif;
+  color: var(--dark);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+} */
+
+/* .wrapper {
+  max-width: 760px;
+  margin: auto;
+  overflow: hidden;
+} */
+
+.page {
+  padding: 5rem;
+  min-height: 200px;
+  opacity: 0.05;
+  transition: opacity 500ms ease-in-out;
+  border: dotted 5px var(--light);
+}
+
+/* On screens that are 500px wide or less, make the columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 500px) {
+    .page {
+        padding: 2.5rem;
+        min-height: 200px;
+        opacity: 0.05;
+        transition: opacity 500ms ease-in-out;
+        border: dotted 5px var(--light);
+      }
+  }
+
+.page.active {
+  opacity: 1;
+}
+
+.page > h3 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.5);
+  color: var(--accent);
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+
+.page > p {
+  font-size: 1.2rem;
+  margin-bottom: 0;
+}
+
+.paginator {
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  cursor: pointer;
+  background: var(--light);
+  color: var(--dark);
+  border: none;
+  padding: 0.5em 0.75rem;
+  transition: transform 50ms ease-out;
+  margin-top: 0.5rem;
+}
+
+button + button {
+  margin-left: 0.5rem;
+}
+
+button.active {
+  background: var(--accent);
+  font-weight: bold;
+  color: white;
+}
+
+#prev_button:focus, #prev_button:hover, #next_button:focus, #next_button:hover {
+  transform: scale(1.1);
+}
+
+.page-nums {
+  margin: 1rem;
+}

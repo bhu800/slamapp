@@ -26,7 +26,7 @@ SECRET_KEY = 'd9)dhy6f!^w$74&0dp7pvtt(3gajj$^svlxxm&^mom5rbd^(3o'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['slamapp.pythonanywhere.com','127.0.0.1']
 
 
 # Application definition
@@ -52,8 +52,10 @@ INSTALLED_APPS = [
 
 AUTH_USER_MODEL = 'users.CustomUser' # new
 
-LOGIN_REDIRECT_URL = 'home' # new
+LOGIN_REDIRECT_URL = 'myapp:letter' # new
 LOGOUT_REDIRECT_URL = 'home' # new
+
+ACCOUNT_LOGOUT_ON_GET = True # to disable intermediate signout page in Django allauth
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -63,6 +65,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'dashboard.middleware.AuthRequiredMiddleware',
 ]
 
 ROOT_URLCONF = 'e_SlamBook.urls'

@@ -1,0 +1,100 @@
+{% extends 'dashboard/layouts/base.html' %}
+{% load static %}
+
+{% block title %} Fill Slams {% endblock title %}
+
+{% block stylesheets %}
+  <link href="{% static 'dashboard/css/slam_card.css' %}" rel="stylesheet" />
+  <link href="{% static 'dashboard/css/style_border.css' %}" rel="stylesheet"/>
+{% endblock stylesheets %}
+
+{% block sidebar %}
+  <div class="sidebar" data-color="white" data-active-color="danger">
+    <div class="logo">
+      <a href="" class="simple-text logo-mini">
+        <div class="logo-image-small">
+          <img src="static/dashboard/img/book.png">
+        </div>
+      </a>
+      <a href="" class="simple-text logo-normal" style="font-size: 40px;">
+        SlamApp
+      </a>
+    </div>
+    <div class="sidebar-wrapper" style="overflow: hidden;">
+      <ul class="nav">
+        <li class="">
+          <a href="{% url 'myapp:showSlambooks_all' %}">
+            <i><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+            width="32" height="32"
+            viewBox="0 0 172 172"
+            style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g><path d="M60.33438,157.21875l-14.5125,9.54063l1.075,-17.33438c0.5375,-8.33125 2.95625,-16.39375 7.12187,-23.65l54.15313,-93.79375c3.7625,-6.45 11.95938,-8.6 18.40937,-4.97187v0c6.45,3.7625 8.6,11.95938 4.97188,18.40937l-54.15312,93.79375c-4.3,7.25625 -10.07812,13.4375 -17.06562,18.00625z" fill="#ffffff"></path><path d="M77.13125,127.52188c-0.67187,0 -1.34375,-0.13437 -2.01562,-0.5375c-1.88125,-1.075 -2.55312,-3.62812 -1.47812,-5.50937l44.075,-76.325c1.075,-1.88125 3.62813,-2.55313 5.50937,-1.47813c1.88125,1.075 2.55313,3.62813 1.47812,5.50938l-44.075,76.325c-0.80625,1.34375 -2.15,2.01563 -3.49375,2.01563z" fill="#3498db"></path><path d="M134.24063,48.64375l0.67188,-1.20938c2.28438,-4.03125 2.95625,-8.73437 1.74688,-13.30312c-1.20938,-4.56875 -4.03125,-8.33125 -8.19688,-10.61562c-4.03125,-2.28438 -8.73437,-2.95625 -13.30313,-1.74688c-4.56875,1.20937 -8.33125,4.03125 -10.61562,8.19687l-54.01875,93.79375c-4.43437,7.79375 -7.12187,16.52813 -7.65937,25.39688l-1.075,17.33437c-0.13437,1.47813 0.67188,2.95625 2.01563,3.7625c0.67188,0.40312 1.34375,0.5375 2.01563,0.5375c0.80625,0 1.6125,-0.26875 2.28438,-0.67187l14.5125,-9.54062c7.39062,-4.97188 13.70625,-11.55625 18.14062,-19.35l49.31563,-85.4625c3.62813,2.82188 4.70313,7.92813 2.28438,12.09375l-28.21875,48.9125c-1.075,1.88125 -0.40312,4.43437 1.47812,5.50937c0.67188,0.40313 1.34375,0.5375 2.01563,0.5375c1.34375,0 2.6875,-0.67187 3.49375,-2.01562l28.21875,-48.9125c4.70313,-8.0625 2.28437,-18.14063 -5.10625,-23.24688zM73.90625,137.19688c-3.89687,6.58437 -9.27187,12.3625 -15.72188,16.6625l-7.79375,5.10625l0.5375,-9.27187c0.40312,-7.65938 2.6875,-15.18437 6.58437,-21.90313l54.15313,-93.79375c1.74688,-2.95625 4.97188,-4.70312 8.19687,-4.70312c1.6125,0 3.225,0.40313 4.70313,1.20937c2.15,1.20937 3.7625,3.225 4.43437,5.77812c0.67188,2.55313 0.26875,4.97188 -0.94062,7.12188zM133.03125,170.65625h-53.75c-2.28437,0 -4.03125,-1.74687 -4.03125,-4.03125c0,-2.28438 1.74688,-4.03125 4.03125,-4.03125h53.75c2.28438,0 4.03125,1.74687 4.03125,4.03125c0,2.28438 -1.74687,4.03125 -4.03125,4.03125zM153.1875,162.59375c-2.2264,0 -4.03125,1.80485 -4.03125,4.03125c0,2.2264 1.80485,4.03125 4.03125,4.03125c2.2264,0 4.03125,-1.80485 4.03125,-4.03125c0,-2.2264 -1.80485,-4.03125 -4.03125,-4.03125z" fill="#444b54"></path></g></g></svg>
+            </i>
+            <p style="font-size: 17px;">Fill Slams</p>
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'myapp:user' %}">
+            <i><img src="https://img.icons8.com/color/48/000000/login-as-user.png"/></i>
+            <p style="font-size: 17px;">User Profile</p>
+          </a>
+        </li>
+        <li class="active">
+          <a href="{% url 'myapp:showSlambooks_my' %}">
+            <i><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+              width="30" height="30"
+              viewBox="0 0 172 172"
+              style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g fill="#f06e5f"><path d="M41.28,134.16h110.08v-127.28h-110.08c-11.38296,0 -20.64,9.25704 -20.64,20.64v118.39448c0,10.58832 9.25704,19.20552 20.64,19.20552h110.08v-6.88h-110.08c-7.45792,0 -13.76,-5.64504 -13.76,-12.32552c0,-6.59104 6.04408,-11.75448 13.76,-11.75448zM73.33392,48.16c4.78504,0 9.288,1.97112 12.66608,5.06712c3.37808,-3.096 7.88104,-5.06712 12.66608,-5.06712c10.1308,0 18.29392,8.16312 18.29392,18.01184c0,16.38816 -31.24208,36.3092 -31.24208,36.3092c0,0 -30.67792,-19.92104 -30.67792,-36.3092c0,-9.84872 8.16312,-18.01184 18.29392,-18.01184z"></path></g></g></svg></i>
+            <p style="font-size: 17px;">Slams Filled</p>
+          </a>
+        </li>
+      </ul>
+      {% include "dashboard/includes/litsoc_logo.html" %}
+    </div>
+  </div>
+  {% endblock sidebar %}
+
+  {% block slamsReceived_status %} active {% endblock %}
+
+{% block content %}
+  <br>
+  <ol class="articles" style="padding-inline-start: 20px;">
+        {% for entry, color in zip %}
+
+          {% if user.email == entry.senior.email %}
+            <li class="articles__article" style="--animation-order:1">
+              <a href="{% url 'myapp:showentry' pk=entry.pk %}" class="articles__link">
+                <div class="articles__content articles__content--lhs" style="background-color: {{color}};">
+                  <p class="articles__title" style="margin-bottom: 0px; text-overflow: ellipsis; overflow: hidden;  display: -webkit-box;
+                  -webkit-line-clamp: 5; /* number of lines to show */
+                  -webkit-box-orient: vertical;"><i><img src="{% static 'dashboard/img/quote_left.png' %}"  width="50" height="50" /></i> {{entry.ans1}} <img src="{% static 'dashboard/img/quote_right.png' %}"  width="42" height="42" /></p>
+                  <p style="margin-bottom: 0px; text-align: right; font-size: 20px;  white-space: nowrap; 
+  width: 240px; 
+  overflow: hidden;
+  text-overflow: ellipsis; "> - {{entry.ans15}}</p>
+                  <!-- <img src={{entry.senior.avatar}} style="position: relative; left: -20px;" /> -->
+                  <!-- <div class="articles__footer">
+                    <p>Cakes</p>
+                    <time>1 Jan 2020</time>
+                  </div> -->
+                </div>
+                <div class="articles__content articles__content--rhs" aria-hidden="true" style="background-color: {{color}};">
+                  <p class="articles__title" style="margin-bottom: 0px; text-overflow: ellipsis; overflow: hidden;  display: -webkit-box;
+                  -webkit-line-clamp: 5; /* number of lines to show */
+                  -webkit-box-orient: vertical;"><i><img src="{% static 'dashboard/img/quote_left.png' %}"  width="50" height="50" /></i> {{entry.ans1}} <img src="{% static 'dashboard/img/quote_right.png' %}"  width="42" height="42" /></p>
+                  <p style="margin-bottom: 0px; text-align: right; font-size: 20px;  white-space: nowrap; 
+  width: 240px; 
+  overflow: hidden;
+  text-overflow: ellipsis; "> - {{entry.ans15}}</p>
+                  <!-- <img src={{entry.senior.avatar}} style="position: relative; left: -20px;"/> -->
+                  <!-- <div class="articles__footer">
+                    <p>Cakes</p>
+                    <time>1 Jan 2020</time>
+                  </div> -->
+                </div>
+              </a>
+            </li>
+          {% endif %}
+        {% endfor %}
+    </ol>
+    
+{% endblock content %}

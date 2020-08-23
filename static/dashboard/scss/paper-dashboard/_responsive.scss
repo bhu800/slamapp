@@ -357,7 +357,8 @@
           > a:not([data-toggle="collapse"]),
           > [data-toggle="collapse"] + div .nav li {
             &:before{
-              border-right: 17px solid $medium-gray;
+              // border-right: 17px solid $medium-gray;
+              border-right: 17px solid #fcf9ea;
               border-top: 17px solid transparent;
               border-bottom: 17px solid transparent;
               content: "";
@@ -370,7 +371,8 @@
             }
 
             &:after{
-              border-right: 17px solid $default-body-bg;
+              // border-right: 17px solid $default-body-bg;
+              border-right: 17px solid #fcf9ea;
               border-top: 17px solid transparent;
               border-bottom: 17px solid transparent;
               content: "";
